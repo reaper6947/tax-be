@@ -1,0 +1,20 @@
+version: '3.3'
+services:
+  db:
+    container_name: tax-db
+    image: postgres:15-alpine
+    init: true
+    environment:
+      POSTGRES_PASSWORD: test
+      POSTGRES_USER: test
+      POSTGRES_DB: tax_testing
+    ports:
+      - '5432:5432'
+    networks:
+      - TAX-network
+    volumes:
+      - TAX-DB-PGDATA:/var/lib/postgresql/data
+volumes:
+  TAX-DB-PGDATA:
+networks:
+  TAX-network:
