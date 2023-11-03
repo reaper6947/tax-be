@@ -85,9 +85,10 @@ export class TaxService {
       const resp = await this.prisma.tax.create({
         data: { ...createTaxDto, tax },
       });
-
+      console.log(resp);
       return resp;
     } catch (e) {
+      console.log(e);
       return e;
     }
   }
