@@ -6,8 +6,8 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class TaxService {
   constructor(private prisma: PrismaService) {}
   async create(createTaxDto: CreateTaxDto) {
-    const { userId, income, year, location, gender, age } = createTaxDto;
-    console.log(userId, income, year, location, gender, age);
+    const { income, location, gender, age } = createTaxDto;
+
     let tax = 0;
     let taxable = 0;
     let taxfree = 0;
@@ -85,7 +85,7 @@ export class TaxService {
       const resp = await this.prisma.tax.create({
         data: { ...createTaxDto, tax },
       });
-      console.log(resp);
+
       return resp;
     } catch (e) {
       console.log(e);

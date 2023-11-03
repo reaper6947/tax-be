@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Param } from '@nestjs/common';
 import { TaxService } from './tax.service';
 import { CreateTaxDto } from './dto/create-tax.dto';
 
-@Controller('tax')
+@Controller('/api/tax')
 export class TaxController {
   constructor(private readonly taxService: TaxService) {}
 
